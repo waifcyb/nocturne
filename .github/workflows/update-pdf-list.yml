@@ -1,3 +1,6 @@
+# This GitHub Actions workflow generates a list of PDF files in the `pdfs` directory
+# and commits the list to a JSON file named `pdf-list.json`. It runs on every push to the `main` branch
+# when there are changes in the `pdfs` directory.
 name: Update PDF List
 
 on:
@@ -34,9 +37,11 @@ jobs:
           fi
 
       - name: Commit and Push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add pdf-list.json
           git commit -m "Update PDF list" || echo "No changes to commit"
-          git push
+          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git```
