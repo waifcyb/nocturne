@@ -1,0 +1,42 @@
+name: Update PDF List
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "pdfs/**"
+
+jobs:
+  update-list:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Generate PDF List
+        run: |
+          cd $GITHUB_WORKSPACE
+          if [ -d "pdfs" ]; then
+            echo "[" > pdf-list.json
+            find pdfs -name "*.pdf" -type f | sort | sed 's|^pdfs/||' | while read -r file; do
+              echo "  \"$file\"," >> pdf-list.json
+            done
+            # Remove trailing comma if any entries
+            if [ -s pdf-list.json ] && [ "$(tail -c 2 pdf-list.json)" = "," ]; then
+              truncate -s -2 pdf-list.json
+              echo "" >> pdf-list.json
+            fi
+            echo "]" >> pdf-list.json
+            echo "Generated pdf-list.json with $(grep -c "\"" pdf-list.json) entries"
+          else
+            echo "[]" > pdf-list.json
+            echo "PDF directory not found, created empty list"
+          fi
+
+      - name: Commit and Push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add pdf-list.json
+          git commit -m "Update PDF list" || echo "No changes to commit"
+          git push
