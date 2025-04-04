@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     toggleButton.addEventListener('click', function() {
         sidebar.classList.toggle('collapsed');
-        toggleButton.textContent = sidebar.classList.contains('collapsed') ? '>' : '<';
+        toggleButton.textContent = '🎼'; // Always show the emoji
     });
 
     const pdfList = document.getElementById('pdf-list');

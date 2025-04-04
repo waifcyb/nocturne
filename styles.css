@@ -22,13 +22,19 @@ body {
   padding: 10px;
   overflow-y: auto;
   border-right: 1px solid #ddd;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease, opacity 0.3s ease;
   position: relative;
 }
 
 .sidebar.collapsed {
   width: 50px;
   overflow: hidden;
+}
+
+.sidebar.collapsed .sidebar-header h2,
+.sidebar.collapsed .search-container,
+.sidebar.collapsed .pdf-list {
+  display: none; /* Hide all content except the toggle button */
 }
 
 .sidebar-header {
@@ -96,6 +102,10 @@ body {
   line-height: 30px;
   border-radius: 3px;
   transition: transform 0.3s ease;
+}
+
+.sidebar.collapsed .toggle-sidebar {
+  margin: 0 auto; /* Center the button when collapsed */
 }
 
 .content {
