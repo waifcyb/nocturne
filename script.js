@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.getElementById('sidebar');
+    const toggleButton = document.getElementById('toggle-sidebar');
+
+    toggleButton.addEventListener('click', function() {
+        sidebar.classList.toggle('collapsed');
+        toggleButton.textContent = sidebar.classList.contains('collapsed') ? '>' : '<';
+    });
+
     const pdfList = document.getElementById('pdf-list');
     const pdfViewer = document.getElementById('pdf-viewer');
     const noSelection = document.getElementById('no-selection');
