@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sheet Music Library</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="container">
-        <div class="sidebar">
-            <h2>Sheet Music Library</h2>
-            <div class="search-container">
-                <input type="text" id="search" placeholder="Search for sheet music...">
-            </div>
-            <ul id="pdf-list" class="pdf-list">
-                <!-- PDF list will be populated here by JavaScript -->
-            </ul>
+      <div class="sidebar" id="sidebar">
+        <button id="toggle-sidebar" class="toggle-sidebar">☰</button>
+        <h2>Sheet Music Library</h2>
+        <div class="search-container">
+          <input
+            type="text"
+            id="search"
+            placeholder="Search for sheet music..."
+          />
         </div>
-        
-        <div class="content">
-            <div id="pdf-container">
-                <div id="no-selection" class="no-selection">
-                    <p>Select a sheet music file from the list</p>
-                </div>
-                <iframe id="pdf-viewer" style="display: none;"></iframe>
-            </div>
+        <ul id="pdf-list" class="pdf-list">
+          <!-- PDF list will be populated here by JavaScript -->
+        </ul>
+      </div>
+
+      <div class="content">
+        <div id="pdf-container">
+          <div id="no-selection" class="no-selection">
+            <p>Select a sheet music file from the list</p>
+          </div>
+          <iframe id="pdf-viewer" style="display: none"></iframe>
         </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
