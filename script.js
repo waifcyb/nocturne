@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const pdfViewer = document.getElementById('pdf-viewer');
     const noSelection = document.getElementById('no-selection');
     const searchInput = document.getElementById('search');
-    const fullscreenBtn = document.getElementById('fullscreen-btn');
+    const fullscreenBtn = document.getElementById('fullscreen-pdf');
     
     // Toggle sidebar visibility
     toggleButton.addEventListener('click', function() {
@@ -30,9 +30,9 @@ document.addEventListener('DOMContentLoaded', function() {
     fullscreenBtn.addEventListener('click', () => {
         if (pdfViewer.requestFullscreen) {
             pdfViewer.requestFullscreen();
-        } else if (pdfViewer.webkitRequestFullscreen) { // Safari
+        } else if (pdfViewer.webkitRequestFullscreen) {
             pdfViewer.webkitRequestFullscreen();
-        } else if (pdfViewer.msRequestFullscreen) { // IE/Edge
+        } else if (pdfViewer.msRequestFullscreen) {
             pdfViewer.msRequestFullscreen();
         }
     });

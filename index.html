@@ -3,15 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sheet Music Library</title>
+    <title>Nocturne</title>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=UnifrakturCook:wght@700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
       <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
           <button id="toggle-sidebar" class="toggle-sidebar">🎼</button>
-          <h2>Sheet Music Library</h2>
+          <h2>Nocturne</h2>
+        </div>
+        <div class="sidebar-row">
+          <button
+            id="fullscreen-pdf"
+            class="fullscreen-sidebar-btn"
+            title="Fullscreen PDF"
+          >
+            <span class="corner top-left">⌜</span>
+            <span class="corner top-right">⌝</span>
+            <span class="fullscreen-label">Fullscreen</span>
+            <span class="corner bottom-left">⌞</span>
+            <span class="corner bottom-right">⌟</span>
+          </button>
         </div>
         <div class="search-container">
           <input
@@ -31,7 +52,6 @@
             <p>Select a sheet music file from the list</p>
           </div>
           <iframe id="pdf-viewer" style="display: none"></iframe>
-          <button id="fullscreen-btn" class="fullscreen-btn">Fullscreen</button>
         </div>
       </div>
     </div>
