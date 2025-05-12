@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const pdfViewer = document.getElementById('pdf-viewer');
     const noSelection = document.getElementById('no-selection');
     const searchInput = document.getElementById('search');
+    const fullscreenBtn = document.getElementById('fullscreen-btn');
     
     // Toggle sidebar visibility
     toggleButton.addEventListener('click', function() {
@@ -22,6 +23,17 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let item of items) {
             const fileName = item.textContent.toLowerCase();
             item.style.display = fileName.includes(searchTerm) ? '' : 'none';
+        }
+    });
+
+    // Fullscreen functionality for PDF viewer
+    fullscreenBtn.addEventListener('click', () => {
+        if (pdfViewer.requestFullscreen) {
+            pdfViewer.requestFullscreen();
+        } else if (pdfViewer.webkitRequestFullscreen) { // Safari
+            pdfViewer.webkitRequestFullscreen();
+        } else if (pdfViewer.msRequestFullscreen) { // IE/Edge
+            pdfViewer.msRequestFullscreen();
         }
     });
 
